@@ -15,6 +15,16 @@ fg.src = "media/images/fg.png";
 pipeNorth.src = "media/images/pipeNorth.png";
 pipeSouth.src = "media/images/pipeSouth.png";
 
+// Archivos de audio
+
+var fly = new Audio();
+var scor = new Audio();
+var crash = new Audio();
+
+fly.src = "media/sounds/fly.mp3";
+scor.src = "media/sounds/score.mp3";
+crash.src = "media/sounds/Cartoon-Boing.mp3"
+
 
 //
 
@@ -26,6 +36,7 @@ var gravity = 1.1;
 var score = 0;
 
 function game_over() {
+    crash.play();
     alert("¡Game Over!");
     var jugar_de_nuevo = confirm("¿Quieres judar de nuevo?");
     if (jugar_de_nuevo == true) {
@@ -39,15 +50,7 @@ function posicion_tubos(min, max) {
     return Math.random() * (max - min) + min;
 }
   
-var tubos = posicion_tubos(125, 350);
-
-// Archivos de audio
-
-var fly = new Audio();
-var scor = new Audio();
-
-fly.src = "media/sounds/fly.mp3";
-scor.src = "media/sounds/score.mp3";
+var tubos = posicion_tubos(125, 300);
 
 // on key down
 
