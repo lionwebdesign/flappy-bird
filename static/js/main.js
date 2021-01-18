@@ -32,7 +32,7 @@ var gap = 85;
 var constant;
 var bX = 10;
 var bY = 150;
-var gravity = 1.1;
+var gravity = 1.5;
 var score = 0;
 
 function game_over() {
@@ -85,7 +85,7 @@ function draw(){
              
         pipe[i].x--;
         
-        if (pipe[i].x == tubos) {
+        if (pipe[i].x == 350) {
             pipe.push({
                 x : cvs.width,
                 y : Math.floor(Math.random()*pipeNorth.height)-pipeNorth.height
