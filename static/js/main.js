@@ -33,7 +33,7 @@ var constant;
 var bX = 10;
 var bY = 150;
 var gravity = 1.1;
-var score = 46;
+var score = 0;
 var intervalo_tubos = 125;
 var poder_de_vuelo = 25;
 
