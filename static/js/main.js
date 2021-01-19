@@ -26,14 +26,16 @@ scor.src = "media/sounds/score.mp3";
 crash.src = "media/sounds/Cartoon-Boing.mp3"
 
 
-//
+//Variables generales
 
 var gap = 85;
 var constant;
 var bX = 10;
 var bY = 150;
-var gravity = 1.5;
+var gravity = 1.1;
 var score = 0;
+var intervalo_tubos = 125;
+var poder_de_vuelo = 25;
 
 function game_over() {
     crash.play();
@@ -46,18 +48,12 @@ function game_over() {
     } 
 }
 
-function posicion_tubos(min, max) {
-    return Math.random() * (max - min) + min;
-}
-  
-var tubos = posicion_tubos(125, 300);
-
-// on key down
+// funcion de vuelo
 
 document.addEventListener("keydown",moveUp);
 
 function moveUp(){
-    bY -= 25;
+    bY -= poder_de_vuelo;
     fly.play();
 }
 
@@ -85,14 +81,14 @@ function draw(){
              
         pipe[i].x--;
         
-        if (pipe[i].x == 350) {
+        if (pipe[i].x == intervalo_tubos) {
             pipe.push({
                 x : cvs.width,
                 y : Math.floor(Math.random()*pipeNorth.height)-pipeNorth.height
             }); 
         }
 
-        // detect collision
+        // detección de colisión
         
         if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY+bird.height >= pipe[i].y+constant) || bY + bird.height >=  cvs.height - fg.height){
 
