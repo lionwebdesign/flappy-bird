@@ -25,7 +25,6 @@ fly.src = "media/sounds/fly.mp3";
 scor.src = "media/sounds/score.mp3";
 crash.src = "media/sounds/Cartoon-Boing.mp3"
 
-
 //Variables generales
 
 var gap = 85;
@@ -35,7 +34,8 @@ var bY = 150;
 var gravity = 1.1;
 var score = 0;
 var intervalo_tubos = 125;
-var poder_de_vuelo = 25;
+var poder_de_vuelo_vertical = 25;
+var poder_de_vuelo_hotizontal = 10;
 
 function game_over() {
     crash.play();
@@ -48,7 +48,7 @@ function game_over() {
     } 
 }
 
-function dificultad() {
+function core() {
     if (score >= 0 && score <= 5) {
         gap = 85;
         gravity = 1.1;
@@ -132,16 +132,20 @@ function dificultad() {
     }
 }
 
-function posicion_tubos(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
 // funcion de vuelo
 
-document.addEventListener("keydown",moveUp);
+window.addEventListener("keydown", vuelo);
 
-function moveUp(){
-    bY -= poder_de_vuelo;
+function vuelo(event){
+    if (event.keyCode == 38) {
+        bY -= poder_de_vuelo_vertical;
+    } else if (event.keyCode == 40) {
+        bY += poder_de_vuelo_vertical;
+    } else if (event.keyCode == 37) {
+        bX -= poder_de_vuelo_hotizontal;
+    } else if (event.keyCode == 39) {
+        bX += poder_de_vuelo_hotizontal;
+    }
     fly.play();
 }
 
@@ -181,7 +185,7 @@ function draw(){
             scor.play();
         }
 
-        dificultad();
+        core();
 
         if (pipe[i].x == intervalo_tubos) {
             pipe.push({
