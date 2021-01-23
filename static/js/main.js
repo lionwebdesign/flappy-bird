@@ -57,19 +57,19 @@ function core() {
         gap = 90;
         gravity = 1.3;
         intervalo_tubos = 175;
-    } else if (score >= 10 && score <= 15) {
+    } else if (score > 10 && score <= 15) {
         gap = 95;
         gravity = 1.5;
         intervalo_tubos = 200;
-    } else if (score >= 15 && score <= 20) {
+    } else if (score > 15 && score <= 20) {
         gap = 100;
         gravity = 1.7;
         intervalo_tubos = 225;
-    } else if (score >= 20 && score <= 25) {
+    } else if (score > 20 && score <= 25) {
         gap = 105;
         gravity = 1.7;
         intervalo_tubos = 250;
-    } else if (score >= 25 && score <= 30) {
+    } else if (score > 25 && score <= 30) {
         gap = 110;
         gravity = 1.9;
         intervalo_tubos = 275;
