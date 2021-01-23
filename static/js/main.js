@@ -94,7 +94,7 @@ function core() {
     
     // Reducción de espacio entre tubos para poder renderizar el siguiente nivel
     else if (score == 20) {
-        //gap = 105;
+        gap = 105;
         gravity = 1.7;
         intervalo_tubos = 200;
     } 
