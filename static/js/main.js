@@ -27,7 +27,8 @@ crash.src = "media/sounds/Cartoon-Boing.mp3"
 
 //Variables generales
 
-var gap = 85;
+var gap = [85, 90, 95, 100, 105, 110, 115, 120, 125, 135 , 140, 145, 150];
+var distancia_entre_obstaculos; //= gap[Math.floor(Math.random() * gap.length)];
 var constant;
 var bX = 10;
 var bY = 150;
@@ -48,168 +49,164 @@ function game_over() {
     } 
 }
 
-function constante_aleatoria(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
 // Control de parametros del juego, gravedad intervalo de tuberias y constante de separación ente tubos
 function core() {
     // 0 a 5
     if (score <= 5) {
-        gap = constante_aleatoria(85,150);
+        //gap = 85;
         gravity = 1.1;
         intervalo_tubos = 150
     } 
     
     // 6 a 9
     else if (score >= 6 && score < 10) {
-        gap = constante_aleatoria(85,150);
+        //gap = 90;
         gravity = 1.3;
         intervalo_tubos = 175;
     } 
     
     // 10 a 14
     else if (score >= 10 && score < 15) {
-        gap = constante_aleatoria(85,150);
+        //gap = 95;
         gravity = 1.5;
         intervalo_tubos = 200;
     } 
     
     else if (score == 15) {
-        gap = constante_aleatoria(85,150);
+        //gap = 100;
         gravity = 1.7;
         intervalo_tubos = 175;
     } 
 
     // 16 a 19
     else if (score >= 16 && score < 20) {
-        gap = constante_aleatoria(85,150);
+        //gap = 100;
         gravity = 1.7;
         intervalo_tubos = 225;
     } 
     
     // Reducción de espacio entre tubos para poder renderizar el siguiente nivel
     else if (score == 20) {
-        gap = constante_aleatoria(85,150);
+        //gap = 105;
         gravity = 1.7;
         intervalo_tubos = 200;
     } 
     
     // 21 a 24
     else if (score >= 21 && score < 25) {
-        gap = constante_aleatoria(85,150);
+        //gap = 105;
         gravity = 1.7;
         intervalo_tubos = 250;
     } 
     
     // Reducción de espacio entre tubos para poder renderizar el siguiente nivel
     else if (score == 25) {
-        gap = constante_aleatoria(85,150);
+        //gap = 110;
         gravity = 1.9;
         intervalo_tubos = 225;
     } 
     
     // 26 a 29
     else if (score >= 26 && score < 30) {
-        gap = constante_aleatoria(85,150);
+        //gap = 110;
         gravity = 1.9;
         intervalo_tubos = 275;
     } 
 
     // Reducción de espacio entre tubos para poder renderizar el siguiente nivel
     else if (score == 30){
-        gap = constante_aleatoria(85,150);
+        //gap = 115;
         gravity = 1.9;
         intervalo_tubos = 250;
     }
 
     // 31 a 34
     else if (score >= 31 && score < 35) {
-        gap = constante_aleatoria(85,150);
+        //gap = 115;
         gravity = 1.9;
         intervalo_tubos = 300;
     }
 
     // Reducción de espacio entre tubos para poder renderizar el siguiente nivel
     else if (score == 35) {
-        gap = constante_aleatoria(85,150);
+        gap = 120;
         gravity = 2.1;
         intervalo_tubos = 275;
     }
 
     // 36 a 39
     else if (score >= 36 && score < 40) {
-        gap = constante_aleatoria(85,150);
+        //gap = 120;
         gravity = 2.1;
         intervalo_tubos = 325;
     }
 
     // Reducción de espacio entre tubos para poder renderizar el siguiente nivel
     else if (score == 40) {
-        gap = constante_aleatoria(85,150);
+        //gap = 115;
         gravity = 2.1;
         intervalo_tubos = 300;
     }   
     
     // 41 a 44 
     else if (score >= 41 && score < 45) {
-        gap = constante_aleatoria(85,150);
+        //gap = 110;
         gravity = 2.1;
         intervalo_tubos = 350;
     }
 
     // Reducción de espacio entre tubos para poder renderizar el siguiente nivel
     else if (score == 45) {
-        gap = constante_aleatoria(85,150);
+        //gap = 105;
         gravity = 2.1;
         intervalo_tubos = 325;
     }
 
     // 46 a 49
     else if (score >= 46 && score < 50) {
-        gap = constante_aleatoria(85,150);
+        //gap = 100;
         gravity = 2.1;
         intervalo_tubos = 375;
     }
 
     // Reducción de espacio entre tubos para poder renderizar el siguiente nivel
     else if (score == 50) {
-        gap = constante_aleatoria(85,150);
+        //gap = 95;
         gravity = 2.1;
         intervalo_tubos = 350;
     }
 
     // 51 a 54
     else if (score >= 51 && score < 55) {
-        gap = constante_aleatoria(85,150);
+        //gap = 90;
         gravity = 2.1;
         intervalo_tubos = 400;
     }
 
     // Reducción de espacio entre tubos para poder renderizar el siguiente nivel
     else if (score == 55) {
-        gap = constante_aleatoria(85,150);
+        //gap = 85;
         gravity = 2.2;
         intervalo_tubos = 375;
     }
 
     // 56 a 59
     else if (score >= 56 && score < 60) {
-        gap = constante_aleatoria(85,150);
+        //gap = 90;
         gravity = 2.3;
         intervalo_tubos = 425;
     }
 
     // Reducción de espacio entre tubos para poder renderizar el siguiente nivel
     else if (score == 60) {
-        gap = constante_aleatoria(85,150);
+        //gap = 95;
         gravity = 2.5;
         intervalo_tubos = 400;
     }
 
     // 61 en adelante
     else if (score >= 61) {
-        gap = constante_aleatoria(85,150);
+        //gap = 100;
         gravity = 2.5;
         intervalo_tubos = 450;
     }
@@ -259,7 +256,8 @@ function draw(){
     
     for(var i = 0; i < pipe.length; i++){
         
-        constant = pipeNorth.height+gap;
+        distancia_entre_obstaculos = gap[Math.floor(Math.random() * gap.length)];
+        constant = pipeNorth.height+distancia_entre_obstaculos;
         ctx.drawImage(pipeNorth,pipe[i].x,pipe[i].y);
         ctx.drawImage(pipeSouth,pipe[i].x,pipe[i].y+constant);
              
