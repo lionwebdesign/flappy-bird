@@ -65,7 +65,11 @@ function core() {
         gap = 100;
         gravity = 1.7;
         intervalo_tubos = 225;
-    } else if (score > 20 && score <= 25) {
+    } else if (score == 21) {
+        gap = 105;
+        gravity = 1.7;
+        intervalo_tubos = 125;
+    } else if (score > 21 && score <= 25) {
         gap = 105;
         gravity = 1.7;
         intervalo_tubos = 250;
