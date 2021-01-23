@@ -132,11 +132,11 @@ function core() {
     }
 }
 
-// funcion de vuelo
+// funcion de vuelo pc
 
-window.addEventListener("keydown", vuelo);
+window.addEventListener("keydown", vuelo_pc);
 
-function vuelo(event){
+function vuelo_pc(event){
     if (event.keyCode == 38) {
         bY -= poder_de_vuelo_vertical;
     } else if (event.keyCode == 40) {
@@ -146,6 +146,15 @@ function vuelo(event){
     } else if (event.keyCode == 39) {
         bX += poder_de_vuelo_hotizontal;
     }
+    fly.play();
+}
+
+// Funcion de vuelo celular
+
+window.addEventListener("click", vuelo_celular);
+
+function vuelo_celular(){
+    bY -= poder_de_vuelo_vertical;
     fly.play();
 }
 
