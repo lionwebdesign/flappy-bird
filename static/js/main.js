@@ -44,7 +44,7 @@ function game_over() {
     if (jugar_de_nuevo == true) {
         location.reload();
     } else {
-        window.location.href = "https://google.com"
+        window.location.href = "#"
     } 
 }
 
