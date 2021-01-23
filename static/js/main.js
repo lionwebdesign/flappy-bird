@@ -48,6 +48,7 @@ function game_over() {
     } 
 }
 
+// Control de parametros del juego, gravedad intervalo de tuberias y constante de separación ente tubos
 function core() {
     // 0 a 5
     if (score <= 5) {
@@ -70,8 +71,14 @@ function core() {
         intervalo_tubos = 200;
     } 
     
-    // 15 a 19
-    else if (score >= 15 && socre < 20) {
+    else if (score == 15) {
+        gap = 100;
+        gravity = 1.7;
+        intervalo_tubos = 225;
+    } 
+
+    // 16 a 19
+    else if (score >= 16 && score < 20) {
         gap = 100;
         gravity = 1.7;
         intervalo_tubos = 225;
@@ -254,19 +261,13 @@ function draw(){
              
         pipe[i].x--;
 
-        // detección de colisión
-        
-        if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY+bird.height >= pipe[i].y+constant) || bY + bird.height >=  cvs.height - fg.height){
-
-            return game_over();
-        }
-        
+        // incremeto de puntaje
         if(pipe[i].x == bX - bird.width){
             score++;
             scor.play();
         }
 
-        core();
+        core();   
 
         if (pipe[i].x == intervalo_tubos) {
             pipe.push({
@@ -275,7 +276,12 @@ function draw(){
             }); 
         }
         
+        // detección de colisión
         
+        if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY+bird.height >= pipe[i].y+constant) || bY + bird.height >=  cvs.height - fg.height){
+
+            return game_over();
+        }      
     }
 
     ctx.drawImage(fg,0,cvs.height - fg.height);
