@@ -189,7 +189,7 @@ function draw(){
             return game_over();
         }
         
-        if(pipe[i].x == 5){
+        if(pipe[i].x == bX - bird.width){
             score++;
             scor.play();
         }
