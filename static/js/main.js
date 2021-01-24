@@ -38,13 +38,6 @@ var intervalo_tubos = 125;
 var poder_de_vuelo_vertical = 25;
 var poder_de_vuelo_hotizontal = 10;
 
-// function prueba_separacion() {
-//     var incremento_puntaje = score;
-//     if (incremento_puntaje > 0) {
-//     return gap = distancia_entre_obstaculos[Math.floor(Math.random() * distancia_entre_obstaculos.length)];
-//     }
-// }
-
 function game_over() {
     crash.play();
     alert("¡Game Over!");
