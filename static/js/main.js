@@ -33,7 +33,7 @@ var constant;
 var bX = 10;
 var bY = 150;
 var gravity = 1.1;
-var score = 0;
+var score = 50;
 var intervalo_tubos = 125;
 var poder_de_vuelo_vertical = 25;
 var poder_de_vuelo_hotizontal = 10;
@@ -152,7 +152,7 @@ function core() {
     else if (score == 40) {
         gap = 115;
         gravity = 2.1;
-        intervalo_tubos = 300;
+        intervalo_tubos = 275;
     }   
     
     // 41 a 44 
@@ -208,7 +208,7 @@ function core() {
     else if (score == 60) {
         gap = 95;
         gravity = 2.5;
-        intervalo_tubos = 400;
+        intervalo_tubos = 375;
     }
 
     // 61 en adelante
