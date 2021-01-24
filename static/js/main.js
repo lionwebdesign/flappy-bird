@@ -259,6 +259,10 @@ pipe[0] = {
 function draw(){
     
     ctx.drawImage(bg,0,0);
+
+    for(var e = 0; score < 0; e++){
+        gap = distancia_entre_obstaculos[Math.floor(Math.random() * distancia_entre_obstaculos.length)];
+    }
     
     
     for(var i = 0; i < pipe.length; i++){
